@@ -1,6 +1,8 @@
 package utils
 
 import (
+	"encoding/json"
+	"io/ioutil"
 	"net"
 	"net/http"
 	"strings"
@@ -34,4 +36,14 @@ func RemoteIP(r *http.Request) string {
 	}
 
 	return ""
+}
+
+// RequestBodyJsonToModel 将Post请求的Body转为Struct
+// 使用示例：
+// var user = model.User{}
+// utils.RequestBodyJsonToModel(request, &user)
+func RequestBodyJsonToModel(request *http.Request, model interface{}) interface{} {
+	body, _ := ioutil.ReadAll(request.Body)
+	_ = json.Unmarshal(body, &model)
+	return model
 }

@@ -1,5 +1,5 @@
 package constant
 
 const (
-	Api_Version = "/v1/"
+	ApiVersion = "/v1/"
 )

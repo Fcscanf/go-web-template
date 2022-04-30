@@ -7,7 +7,7 @@ import (
 )
 
 func AddRouters(mux *http.ServeMux) *http.ServeMux {
-	mux.HandleFunc(constant.Api_Version+"user/show", cors(api.ShowUserList))
+	mux.HandleFunc(constant.ApiVersion+"user/show", cors(api.ShowUserList))
 	return mux
 }
 

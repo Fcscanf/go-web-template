@@ -47,3 +47,9 @@ func RequestBodyJsonToModel(request *http.Request, model interface{}) interface{
 	_ = json.Unmarshal(body, &model)
 	return model
 }
+
+func ResponseBodyJsonToModel(response *http.Response, model interface{}) interface{} {
+	body, _ := ioutil.ReadAll(response.Body)
+	_ = json.Unmarshal(body, &model)
+	return model
+}

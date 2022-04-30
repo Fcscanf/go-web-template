@@ -1,4 +1,4 @@
-package api
+package apis
 
 import (
 	"github.com/fcant/pro/interceptors"

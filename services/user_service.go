@@ -1,10 +1,10 @@
 package services
 
 import (
-	"github.com/fcant/pro/model"
-	"github.com/fcant/pro/storage"
+	"github.com/fcant/pro/models"
+	"github.com/fcant/pro/storages"
 )
 
-func ShowUserList() model.ResponseEntity {
-	return model.ResponseEntityInstance.Ok(storage.UserList)
+func ShowUserList() models.ResponseEntity {
+	return models.ResponseEntityInstance.Ok(storages.UserList)
 }

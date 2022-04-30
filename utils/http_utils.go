@@ -40,7 +40,7 @@ func RemoteIP(r *http.Request) string {
 
 // RequestBodyJsonToModel 将Post请求的Body转为Struct
 // 使用示例：
-// var user = model.User{}
+// var user = models.User{}
 // utils.RequestBodyJsonToModel(request, &user)
 func RequestBodyJsonToModel(request *http.Request, model interface{}) interface{} {
 	body, _ := ioutil.ReadAll(request.Body)

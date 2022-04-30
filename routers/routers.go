@@ -1,13 +1,13 @@
 package routers
 
 import (
-	"github.com/fcant/pro/api"
-	"github.com/fcant/pro/constant"
+	"github.com/fcant/pro/apis"
+	"github.com/fcant/pro/constants"
 	"net/http"
 )
 
 func AddRouters(mux *http.ServeMux) *http.ServeMux {
-	mux.HandleFunc(constant.ApiVersion+"user/show", cors(api.ShowUserList))
+	mux.HandleFunc(constants.ApiVersion+"user/show", cors(apis.ShowUserList))
 	return mux
 }
 

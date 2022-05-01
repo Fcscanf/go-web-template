@@ -50,27 +50,27 @@ func RecordRequest(request *http.Request) {
 func RequestBodyJsonToModel(request *http.Request, model interface{}) interface{} {
 	body, _ := ioutil.ReadAll(request.Body)
 	_ = json.Unmarshal(body, &model)
-	log.Printf("入参记录{JSON转换}：%s", model)
+	log.Printf("入参记录JSON转换：{%s}", model)
 	return model
 }
 
 func ResponseBodyJsonToModel(response *http.Response, model interface{}) interface{} {
 	body, _ := ioutil.ReadAll(response.Body)
 	_ = json.Unmarshal(body, &model)
-	log.Printf("出参记录{JSON转换}：%s", model)
+	log.Printf("出参记录JSON转换：{%s}", model)
 	return model
 }
 
 func RequestBodyXmlToModel(request *http.Request, model interface{}) interface{} {
 	body, _ := ioutil.ReadAll(request.Body)
 	_ = xml.Unmarshal(body, &model)
-	log.Printf("入参记录{XML转换}：%s", model)
+	log.Printf("入参记录XML转换：{%s}", model)
 	return model
 }
 
 func ResponseBodyXmlToModel(response *http.Response, model interface{}) interface{} {
 	body, _ := ioutil.ReadAll(response.Body)
 	_ = xml.Unmarshal(body, &model)
-	log.Printf("出参记录{XML转换}：%s", model)
+	log.Printf("出参记录XML转换：{%s}", model)
 	return model
 }

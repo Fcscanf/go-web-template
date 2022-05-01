@@ -36,8 +36,11 @@ func RemoteIP(r *http.Request) string {
 	if ip, _, err := net.SplitHostPort(strings.TrimSpace(r.RemoteAddr)); err == nil {
 		return ip
 	}
-
 	return ""
+}
+
+func RecordRequest(request *http.Request) {
+	log.Printf("收到【%s】请求，对应的URL为：【%s】", request.Method, request.URL)
 }
 
 // RequestBodyJsonToModel 将Post请求的Body转为Struct

@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"github.com/fcant/pro/routers"
 	"log"
 	"net/http"
@@ -11,8 +10,7 @@ import (
 )
 
 func main() {
-	log.Println("Hello, world!")
-	fmt.Println("Exec Running ...")
+	log.SetFlags(log.LstdFlags | log.Lshortfile)
 	httpServer()
 }
 

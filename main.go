@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/fcant/pro/constants"
 	"github.com/fcant/pro/routers"
 	"log"
 	"net/http"
@@ -17,9 +18,9 @@ func main() {
 func httpServer() {
 	server := &http.Server{
 		/*设置端口地址*/
-		Addr: ":4000",
+		Addr: constants.ServerPort,
 		/*设置响应超时*/
-		WriteTimeout: 2 * time.Second,
+		//WriteTimeout: 2 * time.Second,
 	}
 
 	/*设置退出*/

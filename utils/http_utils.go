@@ -40,7 +40,7 @@ func RemoteIP(r *http.Request) string {
 }
 
 func RecordRequest(request *http.Request) {
-	log.Printf("收到{%s}请求，对应的URL为：{%s}", request.Method, request.URL)
+	log.Printf("收到%s请求，对应的URL为：%s", request.Method, request.URL)
 }
 
 // RequestBodyJsonToModel 将Post请求的Body转为Struct
@@ -50,27 +50,27 @@ func RecordRequest(request *http.Request) {
 func RequestBodyJsonToModel(request *http.Request, model interface{}) interface{} {
 	body, _ := ioutil.ReadAll(request.Body)
 	_ = json.Unmarshal(body, &model)
-	log.Printf("入参记录JSON转换：{%#v}", model)
+	log.Printf("入参记录JSON转换：%#v", model)
 	return model
 }
 
 func ResponseBodyJsonToModel(response *http.Response, model interface{}) interface{} {
 	body, _ := ioutil.ReadAll(response.Body)
 	_ = json.Unmarshal(body, &model)
-	log.Printf("出参记录JSON转换：{%#v}", model)
+	log.Printf("出参记录JSON转换：%#v", model)
 	return model
 }
 
 func RequestBodyXmlToModel(request *http.Request, model interface{}) interface{} {
 	body, _ := ioutil.ReadAll(request.Body)
 	_ = xml.Unmarshal(body, &model)
-	log.Printf("入参记录XML转换：{%#v}", model)
+	log.Printf("入参记录XML转换：%#v", model)
 	return model
 }
 
 func ResponseBodyXmlToModel(response *http.Response, model interface{}) interface{} {
 	body, _ := ioutil.ReadAll(response.Body)
 	_ = xml.Unmarshal(body, &model)
-	log.Printf("出参记录XML转换：{%#v}", model)
+	log.Printf("出参记录XML转换：%#v", model)
 	return model
 }

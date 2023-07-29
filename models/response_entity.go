@@ -1,5 +1,7 @@
 package models
 
+import "net/http"
+
 type ResponseEntity struct {
 	Code    int         `json:"code"`
 	Message string      `json:"message"`
@@ -9,21 +11,21 @@ type ResponseEntity struct {
 var ResponseEntityInstance = ResponseEntity{}
 
 func (r *ResponseEntity) Ok(data interface{}) ResponseEntity {
-	r.Code = 200
+	r.Code = http.StatusOK
 	r.Message = "success"
 	r.Data = data
 	return *r
 }
 
 func (r *ResponseEntity) Fail(data interface{}) ResponseEntity {
-	r.Code = 500
+	r.Code = http.StatusInternalServerError
 	r.Message = "fail"
 	r.Data = data
 	return *r
 }
 
 func (r *ResponseEntity) FailMessage(msg string) ResponseEntity {
-	r.Code = 500
+	r.Code = http.StatusInternalServerError
 	r.Message = msg
 	return *r
 }

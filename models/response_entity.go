@@ -8,8 +8,6 @@ type ResponseEntity struct {
 	Data    interface{} `json:"data"`
 }
 
-var ResponseEntityInstance = ResponseEntity{}
-
 func (r *ResponseEntity) Ok(data interface{}) ResponseEntity {
 	r.Code = http.StatusOK
 	r.Message = "success"

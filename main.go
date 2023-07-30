@@ -7,6 +7,8 @@ import (
 	"net/http"
 	"os"
 	"os/signal"
+	"regexp"
+	"strings"
 	"time"
 )
 
@@ -16,6 +18,10 @@ func main() {
 }
 
 func httpServer() {
+	compilePort := regexp.MustCompile(`\d{1,4}`)
+	if len(os.Args) == 2 && compilePort.MatchString(os.Args[1]) {
+		constants.ServerPort = strings.Replace(constants.ServerPort, "4000", os.Args[1], -1)
+	}
 	server := &http.Server{
 		/*设置端口地址*/
 		Addr: constants.ServerPort,

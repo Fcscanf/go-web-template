@@ -1,6 +1,9 @@
 package constants
 
 const (
-	ServerPort = ":4000"
 	ApiVersion = "/v1/"
+)
+
+var (
+	ServerPort = ":4000"
 )

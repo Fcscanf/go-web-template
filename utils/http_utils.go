@@ -3,7 +3,7 @@ package utils
 import (
 	"encoding/json"
 	"encoding/xml"
-	"io/ioutil"
+	"io"
 	"log"
 	"net"
 	"net/http"
@@ -48,28 +48,28 @@ func RecordRequest(request *http.Request) {
 // var user = models.User{}
 // utils.RequestBodyJsonToModel(request, &user)
 func RequestBodyJsonToModel(request *http.Request, model interface{}) interface{} {
-	body, _ := ioutil.ReadAll(request.Body)
+	body, _ := io.ReadAll(request.Body)
 	_ = json.Unmarshal(body, &model)
 	log.Printf("入参记录JSON转换：%#v", model)
 	return model
 }
 
 func ResponseBodyJsonToModel(response *http.Response, model interface{}) interface{} {
-	body, _ := ioutil.ReadAll(response.Body)
+	body, _ := io.ReadAll(response.Body)
 	_ = json.Unmarshal(body, &model)
 	log.Printf("出参记录JSON转换：%#v", model)
 	return model
 }
 
 func RequestBodyXmlToModel(request *http.Request, model interface{}) interface{} {
-	body, _ := ioutil.ReadAll(request.Body)
+	body, _ := io.ReadAll(request.Body)
 	_ = xml.Unmarshal(body, &model)
 	log.Printf("入参记录XML转换：%#v", model)
 	return model
 }
 
 func ResponseBodyXmlToModel(response *http.Response, model interface{}) interface{} {
-	body, _ := ioutil.ReadAll(response.Body)
+	body, _ := io.ReadAll(response.Body)
 	_ = xml.Unmarshal(body, &model)
 	log.Printf("出参记录XML转换：%#v", model)
 	return model

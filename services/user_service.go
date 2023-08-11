@@ -6,6 +6,6 @@ import (
 )
 
 func ShowUserList() models.ResponseEntity {
-	var ResponseEntityInstance = models.ResponseEntity{}
-	return ResponseEntityInstance.Ok(storages.UserList)
+	var responseEntityInstance = models.ResponseEntity{}
+	return responseEntityInstance.Ok(storages.UserList)
 }

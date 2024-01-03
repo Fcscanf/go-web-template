@@ -3,7 +3,6 @@ package routers
 import (
 	"github.com/fcant/pro/apis"
 	"github.com/fcant/pro/constants"
-	"github.com/fcant/pro/utils"
 	"net/http"
 )
 
@@ -25,7 +24,6 @@ func cors(f http.HandlerFunc) http.HandlerFunc {
 			w.WriteHeader(http.StatusNoContent)
 			return
 		}
-		utils.RecordRequest(r)
 		f(w, r)
 	}
 }

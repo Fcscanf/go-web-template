@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"github.com/fcant/pro/constants"
 	"github.com/fcant/pro/routers"
 	"log"
@@ -49,7 +50,7 @@ func httpServer() {
 	log.Println("Starting Server...v3")
 	err := server.ListenAndServe()
 	if err != nil {
-		if err == http.ErrServerClosed {
+		if errors.Is(err, http.ErrServerClosed) {
 			log.Fatal("Server closed under request")
 		} else {
 			log.Fatal("Server closed Unexpexted")

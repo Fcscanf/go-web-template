@@ -14,5 +14,6 @@ func HandlerRecordOptionUserIP(request *http.Request) {
 
 func ResponseJson(writer http.ResponseWriter, result models.ResponseEntity) {
 	response, _ := json.Marshal(result)
+	writer.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	_, _ = writer.Write(response)
 }

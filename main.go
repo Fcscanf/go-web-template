@@ -34,7 +34,10 @@ func httpServer() {
 	signal.Notify(quit, os.Interrupt)
 
 	mux := http.NewServeMux()
-	mux.Handle("/", &MHandler{})
+	//mux.Handle("/", &MHandler{})
+	mux.Handle("/", http.HandlerFunc(func(writer http.ResponseWriter, request *http.Request) {
+		http.NotFound(writer, request)
+	}))
 	mux.HandleFunc("/bye", sayBye)
 	mux = routers.AddRouters(mux)
 	/*使当前Server指向自定义Mux*/

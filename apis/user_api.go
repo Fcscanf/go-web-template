@@ -7,5 +7,5 @@ import (
 )
 
 func ShowUserList(writer http.ResponseWriter, request *http.Request) {
-	interceptors.ResponseJson(writer, services.ShowUserList())
+	interceptors.ResponseFromService(writer, services.ShowUserList(), nil)
 }

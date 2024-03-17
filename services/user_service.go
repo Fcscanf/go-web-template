@@ -5,7 +5,6 @@ import (
 	"github.com/fcant/pro/storages"
 )
 
-func ShowUserList() models.ResponseEntity {
-	var responseEntityInstance = models.ResponseEntity{}
-	return responseEntityInstance.Ok(storages.UserList)
+func ShowUserList() []models.User {
+	return storages.UserList
 }
